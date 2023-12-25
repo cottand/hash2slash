@@ -1,3 +1,3 @@
 #! /usr/bin/env sh
 
-cat $1 | sed 's/#!/\/\//g' | EXEC
+cat $1 | sed 's/#!/\/\//g' | yaegi
