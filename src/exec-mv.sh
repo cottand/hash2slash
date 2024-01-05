@@ -25,7 +25,7 @@ BASENAME=$(basename $1)
 # copy file over, removing hashes
 cat $1 | sed 's/#!/\/\//g' >> $WORK_DIR/$BASENAME
 
-EXEC $WORK_DIR/$BASENAME
+EXEC $WORK_DIR/$BASENAME $@
 
 exit $?
 
