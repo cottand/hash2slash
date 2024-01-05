@@ -7,5 +7,7 @@ import "os"
 
 func main() {
 	println("Hello world, I am a script!")
-	println(os.Args[1])
+	if len(os.Args) > 1 {
+		println(os.Args[1])
+	}
 }

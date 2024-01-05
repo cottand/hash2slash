@@ -3,4 +3,4 @@
 
 fun greet(then: String) = "Hello, $then!"
 
-println(greet("I am a script"))
+println(greet("I am a script") + args[1])
