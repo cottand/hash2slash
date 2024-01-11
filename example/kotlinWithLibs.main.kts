@@ -1,5 +1,5 @@
 #!/usr/bin/env nix
-#!nix shell /home/cottand/dev/cottand/hash2slash#kotlin --quiet --command hash2slash-kotlin
+#!nix shell /home/cottand/dev/cottand/hash2slash/v0.1#kotlin --quiet --command hash2slash-kotlin
 
 
 @file:DependsOn("eu.jrie.jetbrains:kotlin-shell-core:0.2.1")

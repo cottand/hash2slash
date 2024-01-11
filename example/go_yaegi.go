@@ -1,5 +1,5 @@
 #! /usr/bin/env nix
-#! nix shell github:cottand/hash2slash#go-yaegi --quiet --command hash2slash-go-yaegi
+#! nix shell github:cottand/hash2slash/v0.1#go-yaegi --quiet --command hash2slash-go-yaegi
 
 package main
 

@@ -1,9 +1,15 @@
 # hash2slash
-Tiny Nix utility to write nix shell scripts for `//` languages
+Tiny Nix utility to write nix shell scripts for `//` languages, like Go or Kotlin (make an issue if you would like more!).
+
+Thanks to Nix magic,
+- it allows running scripts without having the language installed
+- it allows you to pin the version of the language to the script (rather than to the system).
+So you can have two Kotlin scripts in the same machine that need different versions of Kotlin
+
 
 ## Requirements: 
 
-Have Nix installed.
+Just have Nix installed.
 
 ## How to
 
@@ -56,6 +62,15 @@ See more at `example/`!
 
 ## FAQ
 
+#### Can I use external libraries inside the scripts?
+
+Yes, mostly. But hash2slash does not take care of that, so you have to look into how your language
+of choice usually does that for scripts.
+
+- For Kotlin, it means [annotations in a `*.main.kts` file](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/main-kts/MainKts.md).
+
+- For Go (with yaegi) it means [you have to set `GOPATH` and install your libs in there](https://github.com/traefik/yaegi/issues/656).
+
 #### But what about other languages, like Python?
 You do not need hash2slash to run those - you can just use `nix shell`.
 [You can read more here](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-shell#use-as-a--interpreter).
@@ -65,6 +80,5 @@ You do not need hash2slash to run those - you can just use `nix shell`.
 Because Go and Kotlin (and even their compiled/interpreted variants, like Yaegi or native Kotlin scripting) do
 not handle multi-line shebangs (`#!`) well, but `nix shell` requires them.
 So what we do here is simply replace them with good old slash comments (`//`) before running the script.
-
 
 
