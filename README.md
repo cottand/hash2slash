@@ -2,11 +2,7 @@
 Tiny Nix utility to write nix shell scripts for `//` languages, like Go or Kotlin (make an issue if you would like more!).
 
 Thanks to Nix magic,
-- it allows running scripts without having the language installed
-- it allows you to pin the version of the language to the script (rather than to the system).
-So you can have two Kotlin scripts in the same machine that need different versions of Kotlin
-
-
+- it allows you to pin the version of the language you want to the script (rather than to the system).
 ## Requirements: 
 
 Just have Nix installed.
@@ -81,4 +77,16 @@ Because Go and Kotlin (and even their compiled/interpreted variants, like Yaegi 
 not handle multi-line shebangs (`#!`) well, but `nix shell` requires them.
 So what we do here is simply replace them with good old slash comments (`//`) before running the script.
 
+
+#### But this utility is 0.x!!
+
+That is not a question, but yes.
+It still should not stop you from trying this out
+'fearlessly' (as far as compatibility goes), because by pinning the version of hash2slash to your script, updates
+to this utility will not break your scripts.
+
+```
+#! nix shell github:cottand/hash2slash/v0.1#go-run
+                           this part   ^^^^
+```
 
