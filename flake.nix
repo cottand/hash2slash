@@ -1,12 +1,15 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-  inputs.utils.url = "github:numtide/flake-utils";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    utils.url = "github:numtide/flake-utils";
+  };
 
-  outputs = { self, nixpkgs, utils, ... }: (utils.lib.eachDefaultSystem (system:
+  outputs = { self, nixpkgs, utils, fenix, ... }: (utils.lib.eachDefaultSystem (system:
     let
       pkgs = import nixpkgs { inherit system; };
       version = "0.0.1";
       plainName = "hash2slash";
+      rust-cargo = fenix.packages."${system}".minimal.toolchain;
     in
     {
       packages = {
